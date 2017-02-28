@@ -1,5 +1,5 @@
 /*
-<INSERT BLOCK>
+Copyright 2017 Heptio Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -17,14 +17,14 @@ limitations under the License.
 package main
 
 import (
-	"error"
+	"fmt"
 	"os"
 
-	"github.com/timothysc/sysproc/node"
+	"github.com/timothysc/sysproc/pkg/node"
 )
 
 // The sole purpose of main in this example is a bootstrap
-// point for the node libraries to start.  A node is the
+// point for the node to start.  A node is the
 // most fundamental unit that is used to wrap what could be
 // 1:N subsystems.  The purpose of the node is simply
 // to read configs start the appropriate things and be a
@@ -32,5 +32,9 @@ import (
 // simply hands off the work.
 func main() {
 	err := node.Run()
-	os.Exit(err.)
+	if err != nil {
+		fmt.Printf("Exiting with error=%v", err)
+		os.Exit(1)
+	}
+	os.Exit(0)
 }
