@@ -23,17 +23,11 @@ import (
 	"github.com/timothysc/sysproc/pkg/node"
 )
 
-// The sole purpose of main in this example is a bootstrap
-// point for the node to start.  A node is the
-// most fundamental unit that is used to wrap what could be
-// 1:N subsystems.  The purpose of the node is simply
-// to read configs start the appropriate things and be a
-// signal handler for cleanup.  Once configs are loaded it
-// simply hands off the work.
+// kicks the node.Run() that's about it.
 func main() {
 	err := node.Run()
 	if err != nil {
-		fmt.Printf("Exiting with error=%v", err)
+		fmt.Printf("\nExiting with error=\"%v\"\n", err)
 		os.Exit(1)
 	}
 	os.Exit(0)

@@ -16,6 +16,28 @@ limitations under the License.
 
 package subsystems
 
+// This is a big old fat TODO.  
+type Config interface { 
+    // TODO
+}
+
+// The subsystems.Interface is the 
 type Interface interface {
-	//TODO
+	// Init will initialize a subsystem from a configration block
+	Init(cfg *Config) error
+
+	// Reconfig will attempt to gracefully adjust a running
+	// subsystems config on the fly.  This is very useful
+	// when trying to tweek params without forcing a restart.
+	// It is triggered by a SIGUP.  In kubernetes this would be 
+    // update a ConfigMap + SIGUP to trigger a reload.
+	Reconfig(cfg *Config) error
+
+	// DumpConfig will take the defaults of a subsystem 
+    // and dump the config to a string which can be appended 
+    // to an array of subsystems
+	DumpConfig() string, error
+
+	// Shutdown will try to gracefully shutdown a pr
+	Shutdown() error
 }

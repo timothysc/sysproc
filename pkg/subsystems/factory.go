@@ -24,4 +24,7 @@ import (
 	"github.com/timothysc/sysproc/pkg/utils/config"
 )
 
-// TODO Here is where we manufacture 1:N subsystems.
+// The factory will take in a heirarchical config
+func Factory(cfg Config) error {
+
+}
