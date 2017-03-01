@@ -18,13 +18,24 @@ package subsystems
 
 import (
 	"fmt"
-
-	"github.com/timothysc/sysproc/pkg/subsystems/eventproxy"
-	"github.com/timothysc/sysproc/pkg/subsystems/example"
-	"github.com/timothysc/sysproc/pkg/utils/config"
+	//"github.com/timothysc/sysproc/pkg/subsystems/operators"
+	//"github.com/timothysc/sysproc/pkg/subsystems/subsystems"
+	//"github.com/timothysc/sysproc/pkg/subsystems/webhook"
 )
 
 // The factory will take in a heirarchical config
-func Factory(cfg Config) error {
+// and return an array of subsystems
+//
+// TODO: Config file formant etc.
+func FactoryInit(cfg Config) ([]Interface, error) {
 
+	fmt.Println("Here is where we would create and init subsystems")
+	/*
+		for _,subsystem := range subsystems {
+			if err = subsystem.Init(); err != nil {
+				break
+			}
+		}
+	*/
+	return nil, nil
 }

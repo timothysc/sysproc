@@ -22,7 +22,14 @@ import (
 	"github.com/spf13/viper"
 )
 
-// TODO: Here is where I wrap viper in some way
+type foo struct {
+	err error
+}
+
+func (f foo) TODO() error {
+	fmt.Println("Config-TODO")
+	return nil
+}
 
 // Load will load the configation data for the process.
 // I'm not going to pretend and create some massive
@@ -31,8 +38,9 @@ import (
 //
 // Config files allow me to simply say load this file and go..
 // don't have one, we have a generate option for you.
-func LoadConfig() Config, error {
+func LoadConfig( /*args meh*/ ) (Config, error) {
 
+	fmt.Println("Loading the Configs!!!")
 	// 0. load in configurations data before doing anything
 	viper.SetConfigName("config")
 	viper.AddConfigPath("/etc/sysproc")
@@ -44,8 +52,10 @@ func LoadConfig() Config, error {
 
 	// If no config is found, use the default(s)
 	viper.SetDefault("msg", "Hello World (default)")
-
 	theMessage := viper.GetString("msg")
 	fmt.Println(theMessage)
-	return err
+
+	// BIG OLD FAT TODO HERE!
+
+	return &foo{}, err
 }
